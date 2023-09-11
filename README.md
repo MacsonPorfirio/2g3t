@@ -1,2 +1,2 @@
-# 2g3t
-## Macson-24    arthur-1.
+# DUPLA
+## Fulano - 25 --- Ciclano - 10.
