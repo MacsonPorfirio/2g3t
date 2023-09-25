@@ -1,2 +1,2 @@
 # DUPLA
-## Fulano - 25 --- Ciclano - 10.
+## Macson - 24 --- Arthur - 1.
