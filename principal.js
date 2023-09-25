@@ -16,9 +16,33 @@ let a = "";
 let b = "";
 let op = "";
 let resultado = 0;
-
-function digitando(tecla){
-    a =+ tecla;
-    alert(a);
+let tem_ponto = falso
+function mostra_resultado (resultado){
+    document.getElementById("resultado"). value = resultado;
 }
+function operacao (nova op){
+    op = nova_op;
+    a = valor;
+    valor = "";
+}
+function calcula(){
+    if(op != "")
+    b = valor;
+    valor = "";
+    if (op == "soma") mostra_resultado(soma (a,b));
+    if (op == "sub") mostra_resultado(sub (a,b));
+    if (op == "div") mostra_resultado(div (a,b));
+    if (op == "mult") mostra_resultado(mult (a,b));
+}
+function digitando(tecla){
+    if(tecla == "."){
+        if(!tem_ponto){
+            vaçor = valor + tecla;
+            mostra_resultado = valor;
+            tem_ponto = true;
+        }
+        return;
+    }
+   valor = valor + tecla;
+   mostra_resultado (valor);
 
