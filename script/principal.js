@@ -1,5 +1,5 @@
 escrever = (msg) => alert(msg);
-soma = (a,b) => a + b;
+soma = (a,b) => Number(a) + Number(b);
 sub = (a,b) => a - b;
 div = (a,b) => a / b;
 mult = (a,b) => a * b;
@@ -15,22 +15,32 @@ eq2grau = (a,b,c) => {
 let a = "";
 let b = "";
 let op = "";
-let resultado = 0;
+let valor = "";
 let tem_ponto = false;
 let desligada = false;
+function raiz_quadrada (){
+    mostra_resultado(raiz(valor));
+    valor = "";
+}
+function porcentagem(){
+    if(op == "mult"){
+        mostra_resultado (div(mult(a,valor),100));
+        a = "";
+        valor = "";
+    }
+}
 function zerar(){
     if(desligada) return;
     a = "";
     b = "";
     op = "";
-    valor= "";
+    valor = "";
     tem_ponto = false;
     mostra_resultado(0);
 }
 function desligar(){
     if(desligada){
         desligada = false;
-
         zerar();
     }else{
         zerar();
@@ -38,46 +48,43 @@ function desligar(){
         desligada = true;
     }
     return desligada;
-
-    
 }
-
-
-
-
-
-
-
-function mostra_resultado (resultado){
+function mostra_resultado(resul){
     if(desligada) return;
-    document.getElementById("resultado"). value = resultado;
+     document.getElementById("resultado").value = resul;
 }
-function operacao (nova op){
+function operacao(nova_op){
     if(desligada) return;
     op = nova_op;
     a = valor;
     valor = "";
+    tem_ponto = false;
 }
 function calcula(){
     if(desligada) return;
-    if(op != "")
-    b = valor;
-    valor = "";
-    if (op == "soma") mostra_resultado(soma (a,b));
-    if (op == "sub") mostra_resultado(sub (a,b));
-    if (op == "div") mostra_resultado(div (a,b));
-    if (op == "mult") mostra_resultado(mult (a,b));
+    if(op != ""){
+        b = valor;
+        valor = "";
+        if(op == "soma") mostra_resultado(soma(a,b));
+        if(op == "sub") mostra_resultado(sub(a,b));
+        if(op == "div") mostra_resultado(div(a,b));
+        if(op == "mult") mostra_resultado(mult(a,b));
+        a = "";
+        b = "";
+        tem_ponto = false;
+
+    }
 }
 function digitando(tecla){
     if(desligada) return;
     if(tecla == "."){
-        if(!tem_ponto){
-            vaçor = valor + tecla;
-            mostra_resultado = valor;
+         if(!tem_ponto){
+            valor = valor + tecla;
+            mostra_resultado(valor);
             tem_ponto = true;
-        }
-        return;
+         }
+         return;
     }
-   valor = valor + tecla;
-   mostra_resultado (valor);
+    valor = valor + tecla;
+    mostra_resultado(valor);
 }
