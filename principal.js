@@ -7,6 +7,9 @@ raiz = a => Math.sqrt(a);
 eq2grau = (a,b,c) => {
     if(a == 0) return "Não é uma equação do Segundo Grau.";
     let delta = sub(mult(b,b),mult(4,mult(a,c)));
+
+    document.GetElementByld("delta").innerHTML = delta;
+    
     if(delta < 0) return "Não Possui raiz real.";
     if(delta == 0) return "x1 = x2 = " + div(-b,mult(2,a));
     return "x1 " + div(soma(-b,raiz(delta)),mult(2,a)) + 
@@ -105,13 +108,23 @@ const set_sinal_c = () =>{
 }
 const set_valor_a = () =>{
     a = document.getElementById("valor_a").value;
+    a = Number (a);
+    if(sa == "-") a = -a;
     calcular2g();
 }
 const set_valor_b = () =>{
     b = document.getElementById("valor_b").value;
+    b = Number (b);
+    if(sa == "-") b = -b;
     calcular2g();
 }
 const set_valor_c = () =>{
     c = document.getElementById("valor_c").value;
+    c = Number (c);
+    if(sa == "-") c = -c;
+
     calcular2g();
+}
+const calcular2g = ()=>{
+    document.getElementById("raiz").innerHTML = eq2grau(a,b,c);
 }
