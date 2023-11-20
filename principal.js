@@ -128,3 +128,27 @@ const set_valor_c = () =>{
 const calcular2g = ()=>{
     document.getElementById("raiz").innerHTML = eq2grau(a,b,c);
 }
+
+const mostrar_pa = () => {
+    if(pa_al != '' && pa_n > 0 && pa_r != ""){
+    let pa = pa_al;
+    let ult_termo = 0;
+    for(let i=1; i < pa_n; i++) {
+        if(ult_termo < 4){
+            pa = ", " + (Number (pa_al) + (i*8) );
+            ult_termo++;
+}
+
+const setpa_al = () => {
+    pa_al = documentElementByld("pa_al").value;
+    mostrar_pa();
+}
+const setpa_n = () => {
+    pa_n = documentElementByld("pa_al").value;
+    mostrar_pa();
+
+}
+const setpa_r = () => {
+    pa_r = documentElementByld("pa_al").value;
+    mostrar_pa();
+}
